@@ -1,0 +1,111 @@
+# ==========================================
+# Java / Build Tools
+# ==========================================
+# Compiled class files & packages
+*.class
+*.war
+*.ear
+*.nar
+*.jar
+!**/src/main/resources/**/*.jar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ==========================================
+# JavaScript / TypeScript / Node.js
+# ==========================================
+# Dependencies
+node_modules/
+jspm_packages/
+.pnp
+.pnp.js
+
+# Build outputs (Vite, Next, Nuxt, Webpack, etc.)
+dist/
+out/
+build/
+.next/
+.nuxt/
+.output/
+.parcel-cache/
+.turbo/
+
+# TypeScript cache & declarations
+*.tsbuildinfo
+
+# Package manager logs & lock cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Environment & Local Overrides
+.env
+.env.local
+.env.*.local
+*.local
+
+# ==========================================
+# IDEs & Editors
+# ==========================================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.metadata
+.project
+.classpath
+.settings/
+bin/
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbproject/genfiles.properties
+/nbproject/project.xml
+
+# ==========================================
+# OS & System Artifacts
+# ==========================================
+# macOS
+.DS_Store
+.AppleDouble
+.
