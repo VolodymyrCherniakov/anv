@@ -1,4 +1,7 @@
-package drinks;
+package cafe.drinks.factory;
+
+import cafe.Tea;
+import cafe.drinks.Coffee;
 
 //simple factory
 public class DrinkFactory {
@@ -6,7 +9,7 @@ public class DrinkFactory {
   private DrinkFactory() {
   }
 
-  public static Drink createDrink(String type) {
+  public static cafe.drinks.Drink createDrink(String type) {
     if (type == null) {
       throw new IllegalArgumentException("Drink type cannot be null");
     }

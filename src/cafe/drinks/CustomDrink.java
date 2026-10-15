@@ -1,6 +1,8 @@
-package drinks;
+package cafe.drinks;
 
-public class CustomDrink implements Drink {
+import cafe.drinks.factory.DrinkFactory;
+
+public class CustomDrink implements cafe.drinks.Drink {
 
   private String  base;
   private boolean sugar;

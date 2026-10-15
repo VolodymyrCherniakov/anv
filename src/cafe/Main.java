@@ -1,8 +1,9 @@
-import drinks.Drink;
-import drinks.Coffee;
-import drinks.DrinkFactory;
-import drinks.Tea;
-import drinks.CustomDrink;
+import cafe.drinks.config.CafeConfig;
+import cafe.Tea;
+import cafe.drinks.Drink;
+import cafe.drinks.Coffee;
+import cafe.drinks.factory.DrinkFactory;
+import cafe.drinks.CustomDrink;
 
 void main() {
 
@@ -18,7 +19,7 @@ void main() {
   IO.println(DrinkFactory.createDrink("coffee").serve() + " in " + CafeConfig.getInstance().getCafeName());
 
   //throwing exception
-  //IO.println(DrinkFactory.createDrink("beer").serve() + " in " + CafeConfig.getInstance().getCafeName());
+  //IO.println(DrinkFactory.createDrink("beer").serve() + " in " + cafe.drinks.config.CafeConfig.getInstance().getCafeName());
 
   //builder
   CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
