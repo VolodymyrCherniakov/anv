@@ -2,6 +2,7 @@ import drinks.Drink;
 import drinks.Coffee;
 import drinks.DrinkFactory;
 import drinks.Tea;
+import drinks.CustomDrink;
 
 void main() {
 
@@ -18,5 +19,10 @@ void main() {
 
   //throwing exception
   //IO.println(DrinkFactory.createDrink("beer").serve() + " in " + CafeConfig.getInstance().getCafeName());
+
+  //builder
+  CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
+  System.out.println(customDrink + " in " + CafeConfig.getInstance().getCafeName());
+
 }
 
