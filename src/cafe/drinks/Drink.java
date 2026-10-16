@@ -1,4 +1,4 @@
-package drinks;
+package cafe.drinks;
 
 public interface Drink {
 

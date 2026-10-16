@@ -109,3 +109,6 @@ bin/
 .DS_Store
 .AppleDouble
 .
+
+# Linux / KDE
+.directory
