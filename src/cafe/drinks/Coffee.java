@@ -1,7 +1,5 @@
 package cafe.drinks;
 
-import cafe.Drink;
-
 public class Coffee implements Drink {
 
   public Coffee() {

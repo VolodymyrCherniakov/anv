@@ -1,6 +1,6 @@
 package cafe.drinks.factory;
 
-import cafe.Tea;
+import cafe.drinks.Tea;
 import cafe.drinks.Coffee;
 
 //simple factory

@@ -1,5 +1,5 @@
 import cafe.drinks.config.CafeConfig;
-import cafe.Tea;
+import cafe.drinks.Tea;
 import cafe.drinks.Drink;
 import cafe.drinks.Coffee;
 import cafe.drinks.factory.DrinkFactory;
