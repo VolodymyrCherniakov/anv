@@ -7,7 +7,7 @@ public class Coffee implements Drink {
 
   @Override
   public String serve() {
-    return "Coffee";
+    return "Serving coffee";
   }
 
 }

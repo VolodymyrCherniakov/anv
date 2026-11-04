@@ -31,7 +31,7 @@ class CafeConfigTests {
   @DisplayName("getCafeName() should return the configured cafe name")
   void testGetCafeName() {
     CafeConfig config = CafeConfig.getInstance();
-    assertEquals("Smart Café", config.getCafeName(), "getCafeName() should return the expected cafe name");
+    assertEquals("SmartCafe", config.getCafeName(), "getCafeName() should return the expected cafe name");
   }
 
   @Test

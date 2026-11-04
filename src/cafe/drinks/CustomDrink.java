@@ -16,26 +16,13 @@ public class CustomDrink implements cafe.drinks.Drink {
     this.caramel = builder.caramel;
   }
 
-  private static final String ORDER_PREFIX = "Ordered";
-
   @Override
   public String toString() {
-    String base = baseName();
-    StringBuilder sb = new StringBuilder(ORDER_PREFIX).append(" ").append(base);
-    if (milk) {
-      sb.append(", milk");
-    }
-    if (sugar) {
-      sb.append(", sugar");
-    }
-    if (caramel) {
-      sb.append(", caramel");
-    }
-    return sb.toString();
-  }
-
-  private String baseName() {
-    return DrinkFactory.createDrink(base).serve();
+    return DrinkFactory.createDrink(base).serve()
+      + (" with")
+      + (milk ? " milk" : "")
+      + (sugar ? ", sugar" : "")
+      + (caramel ? ", caramel" : "");
   }
 
   @Override

@@ -7,7 +7,7 @@ public class Tea implements Drink {
 
   @Override
   public String serve() {
-    return "Tea";
+    return "Serving tea";
   }
 
 }

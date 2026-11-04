@@ -3,7 +3,7 @@ package cafe.drinks.config;
 public class CafeConfig {
 
   private static       CafeConfig instance;
-  private static final String     CAFE_NAME = "Smart Café";
+  private static final String     CAFE_NAME = "SmartCafe";
 
   private CafeConfig() {
   }

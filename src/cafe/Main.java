@@ -4,25 +4,26 @@ import cafe.drinks.Drink;
 import cafe.drinks.Coffee;
 import cafe.drinks.factory.DrinkFactory;
 import cafe.drinks.CustomDrink;
-import cafe.observers.EmployeeObserver;
-import cafe.orders.OrderSubject;
 
 void main() {
 
-  OrderSubject order = new OrderSubject();
-  order.addObserver(new EmployeeObserver("Barista"));
-  order.addObserver(new EmployeeObserver("Waiter"));
+  Drink coffee = new Coffee();
+  IO.println(coffee.serve());
 
-  // factory
-  System.out.println("Ordered " + DrinkFactory.createDrink("tea").serve() + " in " + CafeConfig.getInstance().getCafeName());
-  System.out.println("Ordered " + DrinkFactory.createDrink("coffee").serve() + " in " + CafeConfig.getInstance().getCafeName());
+  Drink tea = new Tea();
+  IO.println(tea.serve());
 
-  // throwing exception
-  //System.out.println("Ordered " + DrinkFactory.createDrink("beer").serve() + " in " + CafeConfig.getInstance().getCafeName());
+  //factory
 
-  // builder
+  IO.println(DrinkFactory.createDrink("tea").serve() + " in " + CafeConfig.getInstance().getCafeName());
+  IO.println(DrinkFactory.createDrink("coffee").serve() + " in " + CafeConfig.getInstance().getCafeName());
+
+  //throwing exception
+  //IO.println(DrinkFactory.createDrink("beer").serve() + " in " + cafe.drinks.config.CafeConfig.getInstance().getCafeName());
+
+  //builder
   CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
-  String msg = customDrink + " in " + CafeConfig.getInstance().getCafeName();
-  order.notifyAll(msg);
+  System.out.println(customDrink + " in " + CafeConfig.getInstance().getCafeName());
 
 }
+
