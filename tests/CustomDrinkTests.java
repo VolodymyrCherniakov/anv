@@ -27,8 +27,8 @@ class CustomDrinkTests {
   @DisplayName("CustomDrink with base only should serve base drink")
   void testBaseDrinkOnly() {
     CustomDrink drink = new CustomDrink.Builder("coffee").build();
-    assertEquals("Serving coffee with", drink.serve());
-    assertEquals("Serving coffee with", drink.toString());
+    assertEquals("Ordered Coffee", drink.serve());
+    assertEquals("Ordered Coffee", drink.toString());
   }
 
   @Test
@@ -38,7 +38,7 @@ class CustomDrinkTests {
       .milk()
       .sugar()
       .build();
-    assertEquals("Serving coffee with milk, sugar", drink.serve());
+    assertEquals("Ordered Coffee, milk, sugar", drink.serve());
   }
 
   @Test
@@ -49,7 +49,7 @@ class CustomDrinkTests {
       .sugar()
       .caramel()
       .build();
-    assertEquals("Serving coffee with milk, sugar, caramel", drink.serve());
+    assertEquals("Ordered Coffee, milk, sugar, caramel", drink.serve());
   }
 
   @Test
@@ -58,7 +58,7 @@ class CustomDrinkTests {
     CustomDrink drink = new CustomDrink.Builder("tea")
       .milk()
       .build();
-    assertEquals("Serving tea with milk", drink.serve());
+    assertEquals("Ordered Tea, milk", drink.serve());
   }
 
   @Test

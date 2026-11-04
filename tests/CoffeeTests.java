@@ -11,14 +11,14 @@ class CoffeeTests {
   @DisplayName("serve() coffee instance")
   void testServeCoffee() {
     Coffee coffee = new Coffee();
-    assertSame("Serving coffee", coffee.serve());
+    assertSame("Coffee", coffee.serve());
   }
 
   @Test
   @DisplayName("serve() drink instance")
   void testServeDrink() {
     Drink coffee = new Coffee();
-    assertSame("Serving coffee", coffee.serve());
+    assertSame("Coffee", coffee.serve());
   }
 
 }
