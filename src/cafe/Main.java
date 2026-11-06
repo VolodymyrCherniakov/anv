@@ -14,15 +14,15 @@ void main() {
   order.addObserver(new EmployeeObserver("Waiter"));
 
   // factory
-  System.out.println("Ordered " + DrinkFactory.createDrink("tea").serve() + " in " + CafeConfig.getInstance().getCafeName());
-  System.out.println("Ordered " + DrinkFactory.createDrink("coffee").serve() + " in " + CafeConfig.getInstance().getCafeName());
+  System.out.println(Drink.ORDER_PREFIX + " " + DrinkFactory.createDrink("tea").serve() + " in " + CafeConfig.getInstance().getCafeName());
+  System.out.println(Drink.ORDER_PREFIX + " " + DrinkFactory.createDrink("coffee").serve() + " in " + CafeConfig.getInstance().getCafeName());
 
   // throwing exception
-  //System.out.println("Ordered " + DrinkFactory.createDrink("beer").serve() + " in " + CafeConfig.getInstance().getCafeName());
+  //System.out.println(Drink.ORDER_PREFIX + " " + DrinkFactory.createDrink("beer").serve() + " in " + CafeConfig.getInstance().getCafeName());
 
   // builder
   CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
-  String msg = customDrink + " in " + CafeConfig.getInstance().getCafeName();
+  String      msg         = customDrink + " in " + CafeConfig.getInstance().getCafeName();
   order.notifyAll(msg);
 
 }
