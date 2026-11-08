@@ -8,7 +8,7 @@ import cafe.observers.EmployeeObserver;
 import cafe.orders.OrderSubject;
 
 void main() {
-
+  // observer
   OrderSubject order = new OrderSubject();
   order.addObserver(new EmployeeObserver("Barista"));
   order.addObserver(new EmployeeObserver("Waiter"));
@@ -24,5 +24,7 @@ void main() {
   CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
   String      msg         = customDrink + " in " + CafeConfig.getInstance().getCafeName();
   order.notifyAll(msg);
+
+
 
 }
