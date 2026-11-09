@@ -2,6 +2,9 @@ import cafe.drinks.CustomDrink;
 import cafe.drinks.config.CafeConfig;
 import cafe.observers.EmployeeObserver;
 import cafe.orders.OrderSubject;
+import cafe.payment.CardPayment;
+import cafe.payment.CashPayment;
+import cafe.payment.Checkout;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -74,6 +77,32 @@ class EmployeeObserverTests {
     assertEquals(
       "Barista notified: Ordered Coffee, milk, sugar in Smart Café" + System.lineSeparator()
         + "Waiter notified: Ordered Coffee, milk, sugar in Smart Café" + System.lineSeparator(),
+      output.toString(StandardCharsets.UTF_8)
+    );
+  }
+
+  @Test
+  @DisplayName("Orders should notify both employees, while card and cash payments should notify only the waiter")
+  void testPaymentNotificationsOnlyReachWaiter() {
+    EmployeeObserver waiter = new EmployeeObserver("Waiter");
+    EmployeeObserver barista = new EmployeeObserver("Barista");
+    OrderSubject order = new OrderSubject();
+    order.addObserver(barista);
+    order.addObserver(waiter);
+    OrderSubject payment = new OrderSubject();
+    payment.addObserver(waiter);
+    Checkout checkout = new Checkout(new CardPayment());
+
+    order.notifyAll("Ordered Coffee");
+    payment.notifyAll(checkout.processPayment(150, 4));
+    checkout.setStrategy(new CashPayment());
+    payment.notifyAll(checkout.processPayment(100, 2));
+
+    assertEquals(
+      "Barista notified: Ordered Coffee" + System.lineSeparator()
+        + "Waiter notified: Ordered Coffee" + System.lineSeparator()
+        + "Waiter notified: Customer want to pay 150.0 using Card (table 4)" + System.lineSeparator()
+        + "Waiter notified: Customer want to pay 100.0 using Cash (table 2)" + System.lineSeparator(),
       output.toString(StandardCharsets.UTF_8)
     );
   }
