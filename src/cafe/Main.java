@@ -56,9 +56,10 @@ void main() {
 
   Checkout checkout  = new Checkout(new CardPayment());
   Command  payByCard = new PaymentCommand(payment, checkout, 150, 4);
+  payByCard.execute();
+
   checkout.setStrategy(new CashPayment());
   Command payByCash = new PaymentCommand(payment, checkout, 100, 2);
-  payByCard.execute();
   payByCash.execute();
 
 }

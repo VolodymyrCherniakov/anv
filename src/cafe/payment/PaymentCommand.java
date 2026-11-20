@@ -19,7 +19,7 @@ public class PaymentCommand implements Command {
 
   @Override
   public void execute() {
-    this.checkout.processPayment(amount, table);
+    payment.notifyAll(checkout.processPayment(amount, table));
   }
 
 }
