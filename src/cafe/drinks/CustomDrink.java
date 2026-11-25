@@ -4,18 +4,21 @@ import cafe.drinks.factory.DrinkFactory;
 
 public class CustomDrink implements cafe.drinks.Drink {
 
-  private String  base;
-  private boolean sugar;
-  private boolean milk;
-  private boolean caramel;
+  protected String  base;
+  protected boolean sugar;
+  protected boolean milk;
+  protected boolean caramel;
 
-  private CustomDrink(Builder builder) {
+  protected CustomDrink(Builder builder) {
     this.base = builder.base;
     this.sugar = builder.sugar;
     this.milk = builder.milk;
     this.caramel = builder.caramel;
   }
-  
+
+  protected CustomDrink() {
+  }
+
   @Override
   public String toString() {
     String        base = baseName();

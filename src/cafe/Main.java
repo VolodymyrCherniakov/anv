@@ -2,6 +2,8 @@ import cafe.drinks.config.CafeConfig;
 import cafe.drinks.Tea;
 import cafe.drinks.Drink;
 import cafe.drinks.Coffee;
+import cafe.drinks.decorator.OwnMugDecorator;
+import cafe.drinks.decorator.ToGoDecorator;
 import cafe.drinks.factory.DrinkFactory;
 import cafe.drinks.CustomDrink;
 import cafe.observers.EmployeeObserver;
@@ -22,6 +24,7 @@ void main() {
   order.addObserver(waiter);
 
   // factory
+  System.out.println("Factory:");
   System.out.println(Drink.ORDER_PREFIX + " " + DrinkFactory.createDrink("tea").serve() + " in " + CafeConfig.getInstance().getCafeName());
   System.out.println(Drink.ORDER_PREFIX + " " + DrinkFactory.createDrink("coffee").serve() + " in " + CafeConfig.getInstance().getCafeName());
 
@@ -29,6 +32,7 @@ void main() {
   //System.out.println(Drink.ORDER_PREFIX + " " + DrinkFactory.createDrink("beer").serve() + " in " + CafeConfig.getInstance().getCafeName());
 
   // builder
+  System.out.println("\n\nBuilder:");
   CustomDrink customDrink = new CustomDrink.Builder("coffee").milk().sugar().build();
   String      msg         = customDrink + " in " + CafeConfig.getInstance().getCafeName();
   order.notifyAll(msg);
@@ -44,6 +48,7 @@ void main() {
   payment.notifyAll(checkout.processPayment(300, 2));*/
 
   // command
+  System.out.println("\n\nCommand:");
   CustomDrink coffee = new CustomDrink.Builder("coffee").milk().sugar().build();
   CustomDrink tea    = new CustomDrink.Builder("tea").sugar().build();
 
@@ -62,4 +67,15 @@ void main() {
   Command payByCash = new PaymentCommand(payment, checkout, 100, 2);
   payByCash.execute();
 
+  //decorator
+  System.out.println("\n\nDecorator:");
+  CustomDrink coffeeOwnMugToGo = new
+    CustomDrink.Builder("coffee").milk().sugar().build();
+  coffeeOwnMugToGo = new OwnMugDecorator(new ToGoDecorator(coffeeOwnMugToGo));
+
+  CustomDrink teaOwnMug = new CustomDrink.Builder("tea").sugar().build();
+  teaOwnMug = new OwnMugDecorator(teaOwnMug);
+
+  new OrderCommand(order, coffeeOwnMugToGo + " in " + cafeName).execute();
+  new OrderCommand(order, teaOwnMug + " in " + cafeName).execute();
 }
