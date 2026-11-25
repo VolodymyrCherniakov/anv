@@ -9,13 +9,16 @@ public class CustomDrink implements cafe.drinks.Drink {
   private boolean milk;
   private boolean caramel;
 
-  private CustomDrink(Builder builder) {
+  protected CustomDrink(Builder builder) {
     this.base = builder.base;
     this.sugar = builder.sugar;
     this.milk = builder.milk;
     this.caramel = builder.caramel;
   }
-  
+
+  protected CustomDrink() {
+  }
+
   @Override
   public String toString() {
     String        base = baseName();
